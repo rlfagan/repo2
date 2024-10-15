@@ -1,0 +1,175 @@
+Usage: fossa analyze [[0;92;1;3m--debug[0m] [[0;92;1;3m-e|--endpoint URL[0m] [[0;92;1;3m-p|--project ARG[0m] [[0;92;1;3m-r|--revision ARG[0m] [[0;92;1;3m--fossa-api-key ARG[0m] [[0;92;1;3m-c|--config ARG[0m] 
+                     [[0;92;1;3m--with-telemetry-scope ARG[0m] [[0;92;1;3m-o|--output[0m] [[0;92;1;3m--unpack-archives[0m] [[0;92;1;3m--json[0m] [[0;92;1;3m--include-unused-deps[0m] 
+                     [[0;92;1;3m--force-vendored-dependency-scan-method METHOD[0m] [[0;92;1;3m--force-vendored-dependency-rescans[0m] [[0;92;1;3m-b|--branch ARG[0m] [[0;92;1;3m-t|--title ARG[0m] 
+                     [[0;92;1;3m-P|--project-url ARG[0m] [[0;92;1;3m-j|--jira-project-key ARG[0m] [[0;92;1;3m-L|--link ARG[0m] [[0;92;1;3m-T|--team ARG[0m] [[0;92;1;3m--policy ARG[0m | [0;92;1;3m--policy-id ARG[0m] 
+                     [[0;92;1;3m--project-label ARG[0m] [[0;92;1;3m--release-group-name ARG[0m [0;92;1;3m--release-group-release ARG[0m] [[0;92;1;3m--only-target PATH[0m] [[0;92;1;3m--exclude-target PATH[0m] 
+                     [[0;92;1;3m--only-path PATH[0m] [[0;92;1;3m--exclude-path PATH[0m] [[0;92;1;3m--detect-vendored[0m] [[0;92;1;3m--experimental-enable-binary-discovery[0m] 
+                     [[0;92;1;3m--experimental-link-project-binary DIR[0m] [[0;92;1;3m--detect-dynamic BINARY[0m] [[0;92;1;3m--experimental-skip-vsi-graph LOCATOR[0m] [[0;92;1;3mDIR[0m] 
+                     [[0;92;1;3m--experimental-use-v3-go-resolver[0m] [[0;92;1;3m--experimental-analyze-path-dependencies[0m] [[0;92;1;3m--experimental-force-first-party-scans[0m] 
+                     [[0;92;1;3m--experimental-block-first-party-scans[0m] [[0;92;1;3m--ignore-org-wide-custom-license-scan-configs[0m] [[0;92;1;3m--fossa-deps-file FILEPATH[0m] 
+                     [[0;92;1;3m--static-only-analysis[0m] [[0;92;1;3m--without-default-filters[0m] [[0;92;1;3m--strict[0m]
+
+    Scan for projects and their dependencies
+
+    Examples:
+      - [0;92;1;3mfossa analyze[0m # Analyze current directory
+      - [0;92;1;3mfossa analyze {path/to/specific/directory}[0m # Analyze specific directory
+      - [0;92;1;3mfossa analyze --detect-vendored[0m # Analyze and detect vendored open source libraries in current directory
+      - [0;92;1;3mfossa analyze --debug[0m # Analyze current directory in debug mode
+
+
+Available options:
+  [0;92;1;3m--debug[0m
+      Enable debug logging, and write detailed debug information to `fossa.debug.json`
+
+  [0;92;1;3m-e,--endpoint URL[0m
+      The FOSSA API server base URL
+      [0;1;3mDefault: [0mhttps://app.fossa.com
+
+  [0;92;1;3m-p,--project ARG[0m
+      This repository's URL or VCS endpoint
+      [0;1;3mDefault: [0mVCS remote 'origin'
+
+  [0;92;1;3m-r,--revision ARG[0m
+      This repository's current revision hash
+      [0;1;3mDefault: [0mVCS hash HEAD
+
+  [0;92;1;3m--fossa-api-key ARG[0m
+      The FOSSA API server authentication key
+      [0;1;3mDefault: [0mFOSSA_API_KEY from env
+
+  [0;92;1;3m-c,--config ARG[0m
+      Path to configuration file including filename
+      [0;1;3mDefault: [0m.fossa.yml
+
+  [0;92;1;3m--with-telemetry-scope ARG[0m
+      Scope of telemetry to use
+      [0;1;3mOptions: [0m[0;92;1;3mfull[0m[0;1;3m|[0m[0;92;1;3moff[0m
+      [0;1;3mDefault: [0m[0;92;1;3mfull[0m
+
+  [0;92;1;3m-o,--output[0m
+      Output results to stdout instead of uploading to FOSSA
+
+  [0;92;1;3m--unpack-archives[0m
+      Recursively unpack and analyze discovered archives
+
+  [0;92;1;3m--json[0m
+      Output project metadata as JSON to the console. This is useful for communicating with the FOSSA API.
+
+  [0;92;1;3m--include-unused-deps[0m
+      Include all deps found, instead of filtering non-production deps. Ignored by VSI.
+
+  [0;92;1;3m--debug-no-discovery-exclusion[0m
+      Ignore filters during discovery phase. This is for debugging only and may be removed without warning.
+
+  [0;92;1;3m--force-vendored-dependency-scan-method METHOD[0m
+      Force the vendored dependency scan method
+      [0;1;3mOptions: [0m[0;92;1;3mCLILicenseScan[0m[0;1;3m|[0m[0;92;1;3mArchiveUpload[0m
+      [0;1;3mNote: [0m[0;92;1;3mCLILicenseScan[0m is usually the default unless your organization has overridden this
+
+  [0;92;1;3m--force-vendored-dependency-rescans[0m
+      Force vendored dependencies to be rescanned even if the revision has been previously analyzed by FOSSA. This currently only works for CLI-side license scans.
+
+  [0;92;1;3m-b,--branch ARG[0m
+      This repository's current branch
+      [0;1;3mDefault: [0mCurrent VCS branch
+
+  [0;92;1;3m-t,--title ARG[0m
+      The title of the FOSSA project
+      [0;1;3mDefault: [0mThe project name
+
+  [0;92;1;3m-P,--project-url ARG[0m
+      This repository's home page
+
+  [0;92;1;3m-j,--jira-project-key ARG[0m
+      This repository's JIRA project key
+
+  [0;92;1;3m-L,--link ARG[0m
+      A link to attach to the current build
+
+  [0;92;1;3m-T,--team ARG[0m
+      This repository's team inside your organization
+
+  [0;92;1;3m--policy ARG[0m
+      The name of the policy to assign to this project in FOSSA. Mutually excludes [0;92;1;3m--policy-id[0m.
+
+  [0;92;1;3m--policy-id ARG[0m
+      The id of the policy to assign to this project in FOSSA. Mutually excludes [0;92;1;3m--policy[0m.
+
+  [0;92;1;3m--project-label ARG[0m
+      Assign up to 5 labels to the project
+
+  [0;92;1;3m--release-group-name ARG[0m
+      The name of the release group to add this project to
+      [0;1;3mNote: [0m[0;91mRelease group options for this command will soon be deprecated. Refer to `fossa release-group` subcommands to interact with FOSSA release groups.[0m
+
+  [0;92;1;3m--release-group-release ARG[0m
+      The release of the release group to add this project to
+      [0;1;3mNote: [0m[0;91mRelease group options for this command will soon be deprecated. Refer to `fossa release-group` subcommands to interact with FOSSA release groups.[0m
+
+  [0;92;1;3m--only-target PATH[0m
+      Only scan these targets. See `targets.only` in the fossa.yml spec.
+
+  [0;92;1;3m--exclude-target PATH[0m
+      Exclude these targets from scanning. See `targets.exclude` in the fossa.yml spec.
+
+  [0;92;1;3m--only-path PATH[0m
+      Only scan these paths. See `paths.only` in the fossa.yml spec.
+
+  [0;92;1;3m--exclude-path PATH[0m
+      Exclude these paths from scanning. See `paths.exclude` in the fossa.yml spec.
+
+  [0;92;1;3m--detect-vendored[0m
+      Analyzes project files on disk to detect vendored open source libraries
+
+  [0;92;1;3m--experimental-enable-binary-discovery[0m
+      Reports binary files as unlicensed dependencies
+
+  [0;92;1;3m--experimental-link-project-binary DIR[0m
+      Links output binary files to this project in FOSSA
+
+  [0;92;1;3m--detect-dynamic BINARY[0m
+      Analyzes dynamically linked libraries in the target binary and reports them as dependencies
+
+  [0;92;1;3m--experimental-skip-vsi-graph LOCATOR[0m
+      Skip resolving the dependencies of the given project in FOSSA
+
+  [0;92;1;3mDIR[0m
+      Set the base directory for scanning
+      [0;1;3mDefault: [0mCurrent directory
+
+  [0;92;1;3m--experimental-use-v3-go-resolver[0m
+      [0;91mDEPRECATED: This is now default and will be removed in the future[0m
+      [0;1;3mFor Go: [0mGenerate a graph of module deps based on package deps. This will be the default in the future.
+
+  [0;92;1;3m--experimental-analyze-path-dependencies[0m
+      License scan dependencies sourced from file system, as indicated in manifest files. This will be enabled by default in the future.
+
+  [0;92;1;3m--experimental-force-first-party-scans[0m
+      Force first party scans
+
+  [0;92;1;3m--experimental-block-first-party-scans[0m
+      Block first party scans. This can be used to forcibly turn off first-party scans if your organization defaults to first-party scans.
+
+  [0;92;1;3m--ignore-org-wide-custom-license-scan-configs[0m
+      Ignore custom-license scan configurations for your organization. These configurations are defined in the `Integrations` section of the Admin settings in the FOSSA web app
+
+  [0;92;1;3m--fossa-deps-file FILEPATH[0m
+      Path to fossa-deps file including filename
+      [0;1;3mDefault:[0m fossa-deps.{yaml|yml|json}
+
+  [0;92;1;3m--static-only-analysis[0m
+      Only analyze the project using static strategies.
+
+  [0;92;1;3m--without-default-filters[0m
+      Ignores default filters.
+      [0;1;3mDocs: [0mhttps://github.com/fossas/fossa-cli/blob/v3.9.37/docs/references/subcommands/analyze.md#what-are-the-default-path-filters
+
+  [0;92;1;3m--strict[0m
+      Enforces strict analysis to ensure the most accurate results by rejecting fallbacks.
+
+
+Global options:
+  [0;92;1;3m-V,--version[0m
+      Show version information and exit
+

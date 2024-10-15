@@ -1,0 +1,163 @@
+{
+  "cliCIEnvironment": null,
+  "cliCommandArgs": [
+    "fossa",
+    "analyze",
+    "--debug"
+  ],
+  "cliEnvironment": "prod",
+  "cliExitedFatally": false,
+  "cliResolvedConfig": {
+    "cmdConfig": {
+      "allowedTacticTypes": "Any",
+      "baseDir": {
+        "unBaseDir": "/Users/ronanfagan/code/juice-shop/"
+      },
+      "customFossaDepsFile": null,
+      "experimental": {
+        "allowedGradleConfigs": null,
+        "resolvePathDependencies": false,
+        "useV3GoResolver": "GoModulesBasedTactic"
+      },
+      "filterSet": {
+        "excludeFilters": {
+          "_combinedPaths": [],
+          "_combinedTargets": []
+        },
+        "includeFilters": {
+          "_combinedPaths": [],
+          "_combinedTargets": []
+        }
+      },
+      "firstPartyScansFlag": "FirstPartyScansUseDefault",
+      "grepOptions": {
+        "configFilePath": null,
+        "customLicenseSearch": [],
+        "keywordSearch": [],
+        "orgWideCustomLicenseScanConfigPolicy": "Use"
+      },
+      "includeAllDeps": {
+        "getFlag": false
+      },
+      "jsonOutput": {
+        "getFlag": false
+      },
+      "mavenScopeFilterSet": {
+        "contents": {
+          "scopes": []
+        },
+        "tag": "MavenScopeIncludeFilters"
+      },
+      "noDiscoveryExclusion": {
+        "getFlag": false
+      },
+      "overrideDynamicAnalysis": {
+        "unOverrideDynamicAnalysisBinary": []
+      },
+      "projectRevision": {
+        "projectBranch": "master",
+        "projectName": "https://github.com/rlfagan/juice-shop.git",
+        "projectRevision": "2c757a928815547d4104dc8b360087f8c3e32c41"
+      },
+      "reachabilityConfig": {},
+      "scanDestination": {
+        "contents": [
+          {
+            "apiKey": "<REDACTED>",
+            "uri": "Nothing"
+          },
+          {
+            "projectJiraKey": null,
+            "projectLabel": [],
+            "projectLink": null,
+            "projectPolicy": null,
+            "projectReleaseGroup": null,
+            "projectTeam": null,
+            "projectTitle": null,
+            "projectUrl": null
+          }
+        ],
+        "tag": "UploadScan"
+      },
+      "severity": "debug",
+      "unpackArchives": {
+        "getFlag": false
+      },
+      "vendoredDeps": {
+        "forceRescans": false,
+        "licenseScanMethod": null,
+        "licenseScanPathFilters": null
+      },
+      "vsiOptions": {
+        "binaryDiscoveryEnabled": {
+          "getFlag": false
+        },
+        "dynamicLinkingTarget": {
+          "unDynamicLinkInspect": null
+        },
+        "iatAssertion": {
+          "unIATAssertion": null
+        },
+        "vsiAnalysisEnabled": {
+          "getFlag": false
+        },
+        "vsiSkipSet": {
+          "unVSISkipResolution": []
+        }
+      },
+      "withoutDefaultFilters": {
+        "getFlag": false
+      }
+    },
+    "cmdName": "analyze"
+  },
+  "cliStartedAt": "2024-05-02T14:47:20.956211Z",
+  "cliSystemInfo": {
+    "systemCapabilities": 12,
+    "systemDistroInfo": null,
+    "systemInfoArch": "x86_64",
+    "systemInfoOs": "darwin",
+    "systemLddVersion": null,
+    "systemProcessors": 12,
+    "systemUname": {
+      "Right": "Darwin 23.0.0 Darwin Kernel Version 23.0.0: Fri Sep 15 14:43:05 PDT 2023; root:xnu-10002.1.13~1/RELEASE_ARM64_T6020 x86_64\n"
+    }
+  },
+  "cliTelLogs": [
+    {
+      "message": "An Issue Occurred\n\n  \u001b[0;93mWarn: \u001b[0mCould not analyze edges between dependencies.\n\n  \u001b[0;93mWarn: \u001b[0mCould not analyze deep dependencies.\n\n    \u001b[0;93mWarn: \u001b[0mLock files - yarn.lock or package-lock.json were not discovered.\n    \u001b[0;95mDocumentation: \u001b[0mhttps://github.com/fossas/fossa-cli/blob/v3.9.15/docs/references/strategies/languages/nodejs/nodejs.md\n    \u001b[0;95mDocumentation: \u001b[0mhttps://docs.npmjs.com/cli/v8/configuring-npm/package-lock-json\n    \u001b[0;95mDocumentation: \u001b[0mhttps://classic.yarnpkg.com/lang/en/docs/yarn-lock/\n    \u001b[0;95mDocumentation: \u001b[0mhttps://yarnpkg.com/getting-started/qa#should-lockfiles-be-committed-to-the-repository\n    \u001b[0;96mHelp: \u001b[0mEnsure valid lockfile exist and is readable prior to running fossa.\n      For yarn package manager, you can perform: `yarn install` to install dependencies and generate lockfile.\n      For node package manager, you can perform: `npm install` to install dependencies and generate lockfile.\n    \u001b[0;92mContext: \u001b[0mCould not perform lockfile analysis for your nodejs project\n    Traceback:\n      - Project Analysis: NpmProjectType",
+      "severity": "warn",
+      "ts": "2024-05-02T14:47:41.894829Z"
+    },
+    {
+      "message": "An Issue Occurred\n\n  \u001b[0;93mWarn: \u001b[0mCould not analyze edges between dependencies.\n\n  \u001b[0;93mWarn: \u001b[0mCould not analyze deep dependencies.\n\n    \u001b[0;93mWarn: \u001b[0mLock files - yarn.lock or package-lock.json were not discovered.\n    \u001b[0;95mDocumentation: \u001b[0mhttps://github.com/fossas/fossa-cli/blob/v3.9.15/docs/references/strategies/languages/nodejs/nodejs.md\n    \u001b[0;95mDocumentation: \u001b[0mhttps://docs.npmjs.com/cli/v8/configuring-npm/package-lock-json\n    \u001b[0;95mDocumentation: \u001b[0mhttps://classic.yarnpkg.com/lang/en/docs/yarn-lock/\n    \u001b[0;95mDocumentation: \u001b[0mhttps://yarnpkg.com/getting-started/qa#should-lockfiles-be-committed-to-the-repository\n    \u001b[0;96mHelp: \u001b[0mEnsure valid lockfile exist and is readable prior to running fossa.\n      For yarn package manager, you can perform: `yarn install` to install dependencies and generate lockfile.\n      For node package manager, you can perform: `npm install` to install dependencies and generate lockfile.\n    \u001b[0;92mContext: \u001b[0mCould not perform lockfile analysis for your nodejs project\n    Traceback:\n      - Project Analysis: NpmProjectType",
+      "severity": "warn",
+      "ts": "2024-05-02T14:47:41.895027Z"
+    },
+    {
+      "message": "An Issue Occurred\n\n  \u001b[0;93mWarn: \u001b[0mFailed to parse python file\n\n    \u001b[0;93mWarn: \u001b[0mNo setup.py found in this project\n\n    Traceback:\n      - Analyzing setup.py\n      - Setuptools\n      - Project Analysis: SetuptoolsProjectType",
+      "severity": "warn",
+      "ts": "2024-05-02T14:47:53.036584Z"
+    }
+  ],
+  "cliTelemetryId": "23e6f1c8-bb4f-4199-8695-eaf31e917bf5",
+  "cliTimedDurations": [
+    {
+      "computationName": "NpmProjectType",
+      "durationInSeconds": 1.037e-3
+    },
+    {
+      "computationName": "NpmProjectType",
+      "durationInSeconds": 1.176e-3
+    },
+    {
+      "computationName": "SetuptoolsProjectType",
+      "durationInSeconds": 11.226141
+    }
+  ],
+  "cliTotalDurationInSec": 40.286539,
+  "cliUsageCounter": {
+    "CustomLicenseSearchUsage": 1
+  },
+  "cliVersion": "v3.9.15"
+}
